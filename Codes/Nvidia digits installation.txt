@@ -1,0 +1,17 @@
+Nvidia-Digits Installation on Ubuntu 16.04
+
+- Nvidia Driver, Cuda and cuDnn:
+[Install Nvidia Driver and CUDA](https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07)
+
+I recommend that installing nvidia driver with apt-get. It is better and you can be sure about driver compatibility. If you install newer version, you may have to face with problems like login loop or GUI shutdown.
+
+While moving cuDnn library to /usr/local, you may have to change the name from "cuda" to "cuDnn". 
+  
+- Nvidia Digits
+  Installing Prerequisites and Dependencies are easy parts. But while installing caffe, I faced with three problems.
+1. Missing protobuf. Can be fixed with:
+  [Protobuf library error](https://github.com/szagoruyko/loadcaffe/issues/76)
+2. Gcc is not supported. Can be fixed with:
+  [Gcc error](https://gist.github.com/wangruohui/679b05fcd1466bb0937f)
+3. memcpy error. Can be fixed with:
+[memcpy error](https://github.com/BVLC/caffe/issues/4046)

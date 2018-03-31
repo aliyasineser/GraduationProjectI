@@ -1,0 +1,40 @@
+-Matlab kodlarının çalıştırılması
+Matlab versiyon: R2016a
+Kullanılan işletim sistemi: Windows 10 Home
+
+Öncelikle Cornell CAD-60 dataseti indirilmelidir.
+Link: http://pr.cs.cornell.edu/humanactivities/data.php
+Erişim tarihi: 3 Ocak 2018
+Linkte CAD-60 başlığındaki "Download RGB-D+Skeleton" kısmındaki Person 1,2,3,4 sırasıyla indirilir.
+Hepsinin içeriği "klasör ve klasör ile aynı isimde bir text dosyası içermektedir" tek bir klasöre atılır.
+Matlab R2016a açılır. Matlab kodları verisetinin bulunduğu klasör ile aynı path'de olmalıdır.
+Matlab çalışma path'ini verisetinin ve kodların bulunduğu klasöre çevirmelisiniz.
+Matlab komut satırında AutomatizedOperation fonksiyonu çağırılarak otomatize edilmiş kod çalıştırılabilir.
+AutomatizedOperation('Datanın bulunduğu path', 'Sonucun çıkarılacağı path')
+Örnek vermek gerekirse:
+%İlk parametre datayı, ikinci parametre verisetinin bulunduğu yeri gösteriyor. 
+% Çıktıyı kodların bulunduğu yere almış oldum bu şekilde.
+AutomatizedOperation('D:\Dataset Segmentation\data', 'D:\Dataset Segmentation')4
+Not: Kod 201 numaralı görüntü bulunamadı şeklinde bir hata verebilir, o ana kadar işlenmiş tüm klasörü dataset içinden çıkarıp baştan çalıştırın.
+
+-Nvidia Digits
+"Nvidia digits installation.txt" dosyasına başvurunuz. Linkler ve açıklama dosyada mevcuttur.
+Nvidia Digits kurulduktan sonra "Datasets" kısmından matlab tarafından artırılmış klasörlerdeki verilerin verisetini oluşturabilirsiniz.
+Matlab'ın ürettiği tüm klasörlerdeki "RGB_1" klasörünü tek "RGB_1" klasörü altında birleştirin. Her şeye evet diyebilirsiniz, isim karmaşası önlenmiştir.
+Her eklem için ayrı klasör olacak, bunlardan tek tek dataset oluşturun. Sonra Networks kısmından Alexneti seçip dataseti seçin ve eğitime başlayın.
+Her eklemin eğitimi 1.5 saat sürecek, 15 eklem var. Hepsi bitince python kodlarından test edebilirsiniz.
+
+
+-Python Test kodlarının çalıştırılması(OpenCV kurulumu en aşağıda yer alıyor, ön şarttır.)
+Önemli olan tek python kodu "testImage.py". Kullanımı:
+python program_ismi görüntü_path çıktı_klasörü_yolu
+çıktı klasörünü oluşturmayı unutmayın, kodda klasör oluşturma kısmı gerçekleştirilmedi. 
+Görüntünün her pikseli için bir görüntü oluşturup sonra da her birini rest api ile test edecektir.
+***Önemli nokta!***
+basepath kod içerisinden güncellenmelidir. Çıktı klasörünün veri yolunu yazmalısınız.
+job id olarak verilen değerler her eklem için eğitilen ağların Digits tarafından atanmış kodlarıdır. Bu kodları değiştirmelisiniz.
+
+-OpenCV kurulumu
+Link: https://github.com/dselivanov/scripts-ubuntu-debian/blob/master/install-opencv.sh
+Erişim tarihi: 4 Ocak 2018
+Aynı şekilde "install-opencv.sh" dosyasını çalıştırarak da kurabilirsiniz. Parolanız istenecektir, yönetici izni olmadan yüklenemez.
