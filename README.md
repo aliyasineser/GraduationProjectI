@@ -17,5 +17,3 @@ For each pixel of the test image during the test phase, estimates of distance fr
 pixels and below were taken correctly and the center of the locations of the correctly
 accepted pixels were considered as the center of the joint. Despite the deviation of
 the legs and invisible joints, the pose estimation can be considered successful.
-
-[Guide](./Codes/Derleme kılavuzu.txt)
