@@ -112,9 +112,9 @@ def search(basePath,job_id, img, color):
 		
 	allPaths = allPaths[:-1]
 	pathList = allPaths.splitlines()
-	exeString = 'curl localhost:5000/models/images/classification/classify_many.json -XPOST -F job_id='+ job_id +' -F image_list=@'+ os.getcwd() +'/tmpTestModel.txt' + ' > AnswerFromModel.txt'
+	#exeString = 'curl localhost:5000/models/images/classification/classify_many.json -XPOST -F job_id='+ job_id +' -F image_list=@'+ os.getcwd() +'/tmpTestModel.txt' + ' > AnswerFromModel.txt'
 	#print exeString
-	os.system(exeString)
+	os.system('curl localhost:5000/models/images/classification/classify_many.json -XPOST -F job_id='+ job_id +' -F image_list=@'+ os.getcwd() +'/tmpTestModel.txt' + ' > AnswerFromModel.txt')
 	retFile = open('AnswerFromModel.txt','r')	
 	content = retFile.read()	
 	parsedJson = json.loads(content)
